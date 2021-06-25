@@ -9,5 +9,3 @@ RUN chmod +x /wait-for-it.sh
 RUN mkdir /service
 
 WORKDIR /service
-
-CMD [ "readiness.sh" ]
