@@ -4,8 +4,15 @@ ENV CGO_ENABLED 0
 RUN apt-get update && \
     apt-get install curl bash
 
-COPY wait-for-it.sh /
-RUN chmod +x /wait-for-it.sh
+RUN mkdir /bin
+
+COPY wait-for-it /
+RUN chmod +x /bin/wait-for-it
+
+COPY readiness /
+RUN chmod +x /bin/readiness
+
+ENV PATH="/bin:${PATH}"
 
 RUN mkdir /service
 
