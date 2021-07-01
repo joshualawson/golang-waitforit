@@ -34,8 +34,8 @@ for ((n=0;n<NUM_OF_CHECKS;n++)); do
 
 done
 
-if [[ $exitCode == 0 ]]; then
-  "${@:2}"
+if [[ $exitCode != 0 ]]; then
+  exit $exitCode
 fi
 
-exit $exitCode
+"${@:2}"
